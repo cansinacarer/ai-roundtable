@@ -37,7 +37,7 @@ function askClaude(query) {
             setTimeout(() => {
                 document.querySelector('button[aria-label="Send Message"]').click();
             }, 212);
-        }, 2032);
+        }, 432);
     }
 
     // Open a new tab with Claude
