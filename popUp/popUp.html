@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<style src=""></style>
+		<link rel="stylesheet" href="pico.classless.min.css" />
+		<link rel="stylesheet" href="popUp.css" />
+		<script defer src="popUp.js"></script>
+		<title>Sup!</title>
+	</head>
+	<body>
+		<main class="container">
+			<h6>💬 Ask the AIs:</h6>
+			<form role="group" id="queryForm">
+				<input
+					autofocus
+					required
+					autocomplete="off"
+					type="text"
+					id="query"
+					placeholder="What are we asking?"
+				/>
+				<input type="submit" id="askButton" value="Ask" />
+			</form>
+			<hr />
+			<div id="options">
+				<fieldset>
+					<h6>Who are we asking:</h6>
+					<label>
+						<input
+							type="checkbox"
+							name="claude"
+							id="claude"
+							checked
+						/>
+						Claude
+					</label>
+					<label>
+						<input
+							type="checkbox"
+							name="gemini"
+							id="gemini"
+							checked
+						/>
+						Gemini
+					</label>
+					<label>
+						<input
+							type="checkbox"
+							name="bingai"
+							id="bingai"
+							checked
+						/>
+						Bing AI
+					</label>
+				</fieldset>
+			</div>
+		</main>
+	</body>
+</html>

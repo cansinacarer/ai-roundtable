@@ -1,0 +1,30 @@
+{
+    "manifest_version": 3,
+    "name": "Multi AI Query",
+    "version": "0.1",
+    "description": "Ask multiple AI assistants simultaneously!",
+    "action": {
+        "default_popup": "popUp/popUp.html"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": [
+        "storage",
+        "scripting",
+        "activeTab",
+        "tabs"
+    ],
+    "host_permissions": [
+        "https://gemini.google.com/*",
+        "https://claude.ai/*",
+        "https://www.bing.com/*"
+    ],
+	"icons": {
+		"16": "img/icon16.png",
+		"32": "img/icon32.png",
+		"48": "img/icon48.png",
+		"128": "img/icon128.png",
+		"1024": "img/icon1024.png"
+	}
+  }
