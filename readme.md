@@ -1,7 +1,7 @@
 # AI Roundtable Query Chrome Extension
 This Chrome extension allows you to input your question once and have an answer from multiple AI assistants at once. You can customize which assistants you wish to ask your question.
 
-ToDo:
+## ToDo:
 
 - More AI assistants support
   - [x] Gemini
