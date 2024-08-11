@@ -4,8 +4,13 @@ This Chrome extension allows you to input your question once and have an answer 
 ## Demo
 <img src="img/demo.gif" alt="demo.gif" style="max-width: 600px; height: auto;">
 
+## Change Log
+### v0.1.1
+- Keyboard shortcut support and tooltips,
+- Minor style fixes,
+- Better form validation.
 
-## ToDo:
+## ToDo
 
 - More AI assistants support
   - [x] Gemini
