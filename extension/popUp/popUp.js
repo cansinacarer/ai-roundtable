@@ -64,3 +64,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+
+// Toggle checkbox with id "claude" when keyboard button 1 is clicked
+document.addEventListener('keydown', (event) => {
+    if (event.altKey && event.key === '1') {
+        const checkbox = document.getElementById('claude');
+        checkbox.checked = !checkbox.checked;
+    }
+    if (event.altKey && event.key === '2') {
+        const checkbox = document.getElementById('gemini');
+        checkbox.checked = !checkbox.checked;
+    }
+    if (event.altKey && event.key === '3') {
+        const checkbox = document.getElementById('bingai');
+        checkbox.checked = !checkbox.checked;
+    }
+});

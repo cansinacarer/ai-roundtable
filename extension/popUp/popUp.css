@@ -1,3 +1,7 @@
 body {
     width: 600px;
 }
+
+label {
+    border-bottom: none !important;
+}
