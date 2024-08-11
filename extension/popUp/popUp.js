@@ -84,15 +84,19 @@ function listenForKeyboardShortcuts(checkboxes, form) {
 		// If the alt key is pressed, this is a checkbox state change shortcut
 		if (event.altKey) {
 			if (event.key === "1") {
-				const checkbox = document.getElementById("claude");
+				const checkbox = document.getElementById("gemini");
 				checkbox.checked = !checkbox.checked;
 			}
 			if (event.key === "2") {
-				const checkbox = document.getElementById("gemini");
+				const checkbox = document.getElementById("claude");
 				checkbox.checked = !checkbox.checked;
 			}
 			if (event.key === "3") {
 				const checkbox = document.getElementById("bingai");
+				checkbox.checked = !checkbox.checked;
+			}
+			if (event.key === "4") {
+				const checkbox = document.getElementById("chatgpt");
 				checkbox.checked = !checkbox.checked;
 			}
 			saveCheckboxStates(checkboxes);

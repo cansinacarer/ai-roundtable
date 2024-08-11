@@ -1,24 +1,28 @@
 {
-    "manifest_version": 3,
-    "name": "AI Roundtable",
-    "version": "0.1.1",
-    "description": "Ask multiple AI assistants simultaneously!",
-    "action": {
-        "default_popup": "popUp/popUp.html"
-    },
-    "background": {
-        "service_worker": "background.js"
-    },
-    "permissions": [
-        "storage",
-        "scripting",
-        "tabs"
-    ],
-    "host_permissions": [
-        "https://gemini.google.com/*",
-        "https://claude.ai/*",
-        "https://www.bing.com/*"
-    ],
+	"manifest_version": 3,
+	"name": "AI Roundtable",
+	"version": "0.1.1",
+	"description": "Ask multiple AI assistants simultaneously!",
+	"commands": {
+		"_execute_action": {
+			"suggested_key": {
+				"default": "Ctrl+Shift+Q",
+				"mac": "Ctrl+Shift+Q"
+			}
+		}
+	},
+	"action": {
+		"default_popup": "popUp/popUp.html"
+	},
+	"background": {
+		"service_worker": "background.js"
+	},
+	"permissions": ["storage", "scripting", "tabs"],
+	"host_permissions": [
+		"https://gemini.google.com/*",
+		"https://claude.ai/*",
+		"https://www.bing.com/*"
+	],
 	"icons": {
 		"16": "img/icon16.png",
 		"32": "img/icon32.png",
@@ -26,4 +30,4 @@
 		"128": "img/icon128.png",
 		"1024": "img/icon1024.png"
 	}
-  }
+}
