@@ -40,29 +40,31 @@ function getCheckedCheckboxNames() {
 	return checkedNames;
 }
 
-function listenForFormSubmit() {
-	// When the input submit button is clicked, open a new tab with the query alert
-	const form = document.getElementById("queryForm");
-
+// When the input submit button is clicked, send a message to the background script
+function listenForFormSubmit(form) {
 	form.addEventListener("submit", (event) => {
 		event.preventDefault();
+		processForm(form);
+	});
+}
 
-		// Check if at least one AI assistant is selected
-		selectedAIAssistants = getCheckedCheckboxNames();
-		if (selectedAIAssistants.length === 0) {
-			alert("Please select at least one AI assistant");
-			return;
-		}
+// Process the form
+function processForm() {
+	// Check if at least one AI assistant is selected
+	selectedAIAssistants = getCheckedCheckboxNames();
+	if (selectedAIAssistants.length === 0) {
+		alert("Please select at least one AI assistant");
+		return;
+	}
 
-		const query = document.getElementById("query").value;
+	const query = document.getElementById("query").value;
 
-		// Send message to the background script to do the rest
-		// We cannot do it here because execution of this script stops if we open a new tab
-		chrome.runtime.sendMessage({
-			action: "openNewTab",
-			query: query,
-			target: selectedAIAssistants,
-		});
+	// Send message to the background script to do the rest
+	// We cannot do it here because execution of this script stops if we open a new tab
+	chrome.runtime.sendMessage({
+		action: "openNewTab",
+		query: query,
+		target: selectedAIAssistants,
 	});
 }
 
@@ -77,21 +79,29 @@ function listenForCheckboxChange(checkboxes) {
 }
 
 // Toggle checkbox with id "claude" when keyboard button 1 is clicked
-function listenForKeyboardShortcuts(checkboxes) {
+function listenForKeyboardShortcuts(checkboxes, form) {
 	document.addEventListener("keydown", (event) => {
-		if (event.altKey && event.key === "1") {
-			const checkbox = document.getElementById("claude");
-			checkbox.checked = !checkbox.checked;
+		// If the alt key is pressed, this is a checkbox state change shortcut
+		if (event.altKey) {
+			if (event.key === "1") {
+				const checkbox = document.getElementById("claude");
+				checkbox.checked = !checkbox.checked;
+			}
+			if (event.key === "2") {
+				const checkbox = document.getElementById("gemini");
+				checkbox.checked = !checkbox.checked;
+			}
+			if (event.key === "3") {
+				const checkbox = document.getElementById("bingai");
+				checkbox.checked = !checkbox.checked;
+			}
+			saveCheckboxStates(checkboxes);
 		}
-		if (event.altKey && event.key === "2") {
-			const checkbox = document.getElementById("gemini");
-			checkbox.checked = !checkbox.checked;
+
+		// If Ctrl + Enter, submit the form
+		if (event.ctrlKey && event.key === "Enter") {
+			processForm();
 		}
-		if (event.altKey && event.key === "3") {
-			const checkbox = document.getElementById("bingai");
-			checkbox.checked = !checkbox.checked;
-		}
-		saveCheckboxStates(checkboxes);
 	});
 }
 
@@ -100,6 +110,9 @@ document.addEventListener("DOMContentLoaded", function () {
 	// Checkboxes for AI assistants
 	const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
+	// Query form
+	const form = document.getElementById("queryForm");
+
 	// Update the checkbox states when the popup is opened
 	applySavedCheckboxStates(checkboxes);
 
@@ -107,8 +120,8 @@ document.addEventListener("DOMContentLoaded", function () {
 	listenForCheckboxChange(checkboxes);
 
 	// Listen for keyboard shortcuts
-	listenForKeyboardShortcuts(checkboxes);
+	listenForKeyboardShortcuts(checkboxes, form);
 
 	// Listen for form submit
-	listenForFormSubmit();
+	listenForFormSubmit(form);
 });
