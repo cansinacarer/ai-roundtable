@@ -17,7 +17,7 @@
 	"background": {
 		"service_worker": "background.js"
 	},
-	"permissions": ["storage", "scripting", "tabs"],
+	"permissions": ["storage", "scripting"],
 	"host_permissions": [
 		"https://gemini.google.com/*",
 		"https://claude.ai/*",
