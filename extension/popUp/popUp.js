@@ -96,7 +96,7 @@ function listenForKeyboardShortcuts(checkboxes, form) {
 				checkbox.checked = !checkbox.checked;
 			}
 			if (event.key === "4") {
-				const checkbox = document.getElementById("chatgpt");
+				const checkbox = document.getElementById("perplexity");
 				checkbox.checked = !checkbox.checked;
 			}
 			saveCheckboxStates(checkboxes);

@@ -71,9 +71,11 @@ function askBingAI(query) {
 	});
 }
 
-function askChatGPT(query) {
-	// TODO: Add ChatGPT search functionality
-	console.log("ChatGPT is not implemented yet");
+function askPerplexity(query) {
+	// Open a new tab with Gemini
+	chrome.tabs.create({
+		url: `https://www.perplexity.ai/search/new?q=${query}`,
+	});
 }
 
 // Listen for the for submit message from the popup
@@ -88,8 +90,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 		if (request.target.includes("bingai")) {
 			askBingAI(request.query);
 		}
-		if (request.target.includes("chatgpt")) {
-			askChatGPT(request.query);
+		if (request.target.includes("perplexity")) {
+			askPerplexity(request.query);
 		}
 	}
 	sendResponse({ success: true });

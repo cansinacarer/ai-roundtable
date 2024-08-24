@@ -18,6 +18,7 @@ This Chrome extension allows you to input your question once and have an answer 
   - [x] Gemini
   - [x] Claude
   - [x] Microsoft Copilot
+  - [x] Perplexity
   - [ ] ChatGPT
 - More features
   - [ ] Verify that user is logged into the services
