@@ -7,6 +7,13 @@ This Chrome extension allows you to input your question once and have an answer 
 <img src="img/demo.gif" alt="demo.gif" style="max-width: 600px; height: auto;">
 
 ## Change Log
+### v0.1.3
+- Added Perplexity AI option
+
+### v0.1.2
+- Added shortcut list in pop up,
+- Checkboxes replaced with switches.
+
 ### v0.1.1
 - Keyboard shortcut support and tooltips,
 - Minor style fixes,
