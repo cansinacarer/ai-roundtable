@@ -18,7 +18,12 @@
 		"service_worker": "background.js"
 	},
 	"permissions": ["storage", "scripting"],
-	"host_permissions": ["https://gemini.google.com/*", "https://claude.ai/*"],
+	"host_permissions": [
+		"https://gemini.google.com/*",
+		"https://claude.ai/*",
+		"https://www.bing.com/*",
+		"https://www.perplexity.ai/"
+	],
 	"icons": {
 		"16": "img/icon16.png",
 		"32": "img/icon32.png",
