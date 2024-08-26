@@ -1,7 +1,7 @@
 # AI Roundtable
 This Chrome extension allows you to input your question once and have an answer from multiple AI assistants at once. You can customize which assistants you wish to ask your question.
 
-<a target="_blank" href="https://chromewebstore.google.com/detail/ai-roundtable/pldlelgldijcogjpoghbkfiglajppjfc?hl=en-US">See it on Chrome Web Store</a>
+[See it on Chrome Web Store](https://chromewebstore.google.com/detail/ai-roundtable/pldlelgldijcogjpoghbkfiglajppjfc?hl=en-US)
 
 ## Demo
 ![Demo](img/demo.gif)
