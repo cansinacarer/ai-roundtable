@@ -4,7 +4,8 @@ This Chrome extension allows you to input your question once and have an answer 
 <a target="_blank" href="https://chromewebstore.google.com/detail/ai-roundtable/pldlelgldijcogjpoghbkfiglajppjfc?hl=en-US">See it on Chrome Web Store</a>
 
 ## Demo
-<img src="img/demo.gif" alt="demo.gif" style="max-width: 600px; height: auto;">
+![Demo](img/demo.gif)
+
 
 ## Change Log
 ### v0.1.3
