@@ -99,6 +99,10 @@ function listenForKeyboardShortcuts(checkboxes, form) {
 				const checkbox = document.getElementById("perplexity");
 				checkbox.checked = !checkbox.checked;
 			}
+			if (event.key === "5") {
+				const checkbox = document.getElementById("chatgpt");
+				checkbox.checked = !checkbox.checked;
+			}
 			saveCheckboxStates(checkboxes);
 		}
 

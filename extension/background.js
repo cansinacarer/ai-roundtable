@@ -78,6 +78,13 @@ function askPerplexity(query) {
 	});
 }
 
+function askChatGPT(query) {
+	// Open a new tab with Gemini
+	chrome.tabs.create({
+		url: `https://www.chatgpt.com/?q=${query}`,
+	});
+}
+
 // Listen for the for submit message from the popup
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 	if (request.action === "openNewTab") {
@@ -92,6 +99,9 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 		}
 		if (request.target.includes("perplexity")) {
 			askPerplexity(request.query);
+		}
+		if (request.target.includes("chatgpt")) {
+			askChatGPT(request.query);
 		}
 	}
 	sendResponse({ success: true });

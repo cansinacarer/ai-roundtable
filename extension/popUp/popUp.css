@@ -1,7 +1,12 @@
 body {
-    width: 600px;
+	width: 600px;
 }
 
 label {
-    border-bottom: none !important;
+	border-bottom: none !important;
+}
+
+textarea,
+input[type="submit"] {
+	height: 72px;
 }
