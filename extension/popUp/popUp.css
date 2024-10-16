@@ -10,3 +10,7 @@ textarea,
 input[type="submit"] {
 	height: 72px;
 }
+
+textarea {
+	white-space: pre-wrap;
+}

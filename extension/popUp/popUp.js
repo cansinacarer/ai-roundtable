@@ -62,7 +62,7 @@ function processForm() {
 	// Send message to the background script to do the rest
 	// We cannot do it here because execution of this script stops if we open a new tab
 	chrome.runtime.sendMessage({
-		action: "openNewTab",
+		action: "submitToAssistants",
 		query: query,
 		target: selectedAIAssistants,
 	});

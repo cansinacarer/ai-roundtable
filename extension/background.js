@@ -34,7 +34,8 @@ function askClaude(query) {
 	// Filling out the form and submit action
 	function submitClaude(query) {
 		setTimeout(() => {
-			document.querySelector('[tabindex="0"] p').textContent = `${query}`;
+			document.querySelector('[tabindex="0"] p').innerHTML =
+				query.replace(/\n/g, "<br>");
 			setTimeout(() => {
 				document
 					.querySelector('button[aria-label="Send Message"]')
@@ -65,29 +66,38 @@ function askClaude(query) {
 }
 
 function askBingAI(query) {
+	// URLEncode the query
+	const encodedQuery = encodeURIComponent(query);
+
 	// Open a new tab with Gemini
 	chrome.tabs.create({
-		url: `https://www.bing.com/chat?q=${query}&sendquery=1&FORM=SCCODX`,
+		url: `https://www.bing.com/chat?q=${encodedQuery}&sendquery=1&FORM=SCCODX`,
 	});
 }
 
 function askPerplexity(query) {
+	// URLEncode the query
+	const encodedQuery = encodeURIComponent(query);
+
 	// Open a new tab with Gemini
 	chrome.tabs.create({
-		url: `https://www.perplexity.ai/search/new?q=${query}`,
+		url: `https://www.perplexity.ai/search/new?q=${encodedQuery}`,
 	});
 }
 
 function askChatGPT(query) {
+	// URLEncode the query
+	const encodedQuery = encodeURIComponent(query);
+
 	// Open a new tab with Gemini
 	chrome.tabs.create({
-		url: `https://www.chatgpt.com/?q=${query}`,
+		url: `https://www.chatgpt.com/?q=${encodedQuery}`,
 	});
 }
 
 // Listen for the for submit message from the popup
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-	if (request.action === "openNewTab") {
+	if (request.action === "submitToAssistants") {
 		if (request.target.includes("gemini")) {
 			askGemini(request.query);
 		}
