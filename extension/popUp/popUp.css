@@ -14,3 +14,8 @@ input[type="submit"] {
 textarea {
 	white-space: pre-wrap;
 }
+
+#submitHint {
+	text-align: right;
+	display: block;
+}
