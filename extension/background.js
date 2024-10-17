@@ -31,37 +31,12 @@ function askGemini(query) {
 }
 
 function askClaude(query) {
-	// Filling out the form and submit action
-	function submitClaude(query) {
-		setTimeout(() => {
-			document.querySelector('[tabindex="0"] p').innerHTML =
-				query.replace(/\n/g, "<br>");
-			setTimeout(() => {
-				document
-					.querySelector('button[aria-label="Send Message"]')
-					.click();
-			}, 212);
-		}, 432);
-	}
+	// URLEncode the query
+	const encodedQuery = encodeURIComponent(query);
 
-	// Open a new tab with Claude
-	chrome.tabs.create({ url: "https://claude.ai/new" }, (newTab) => {
-		let executed = false;
-		chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-			if (
-				tabId === newTab.id &&
-				changeInfo.status === "complete" &&
-				!executed
-			) {
-				executed = true;
-
-				chrome.scripting.executeScript({
-					target: { tabId: tabId },
-					func: submitClaude,
-					args: [query],
-				});
-			}
-		});
+	// Open a new tab with Gemini
+	chrome.tabs.create({
+		url: `https://claude.ai/new?q=${encodedQuery}`,
 	});
 }
 

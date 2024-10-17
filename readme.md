@@ -12,6 +12,10 @@ This Chrome extension allows you to input your question once and have an answer 
 
 ## Change Log
 
+### v0.1.5
+
+- Simplified the query mechanism for Claude
+
 ### v0.1.4
 
 - Added ChatGPT option
