@@ -1,7 +1,7 @@
 {
 	"manifest_version": 3,
 	"name": "AI Roundtable",
-	"version": "0.1.5",
+	"version": "0.1.6",
 	"description": "Ask multiple AI assistants simultaneously!",
 	"commands": {
 		"_execute_action": {

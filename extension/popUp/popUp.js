@@ -48,6 +48,16 @@ function listenForFormSubmit(form) {
 	});
 }
 
+// Save the query in the textarea
+function saveQuery(query) {
+	chrome.storage.local.set({ savedText: query });
+}
+
+// Clear saved query from storage
+function clearQuery() {
+	chrome.storage.local.remove("savedText");
+}
+
 // Process the form
 function processForm() {
 	// Check if at least one AI assistant is selected
@@ -66,6 +76,9 @@ function processForm() {
 		query: query,
 		target: selectedAIAssistants,
 	});
+
+	// Clear the saved query
+	clearQuery();
 }
 
 // Add an event listener to each checkbox
@@ -75,6 +88,22 @@ function listenForCheckboxChange(checkboxes) {
 			// Save the checkbox states in the local storage using the Chrome API
 			saveCheckboxStates(checkboxes);
 		});
+	});
+}
+
+// Add an event listener to the textarea
+function listenForTextareaChange(textarea) {
+	textarea.addEventListener("input", function () {
+		saveQuery(textarea.value);
+	});
+}
+
+// Load the saved query from the local storage
+function loadSavedQuery(textarea) {
+	chrome.storage.local.get(["savedText"], (result) => {
+		if (result.savedText) {
+			textarea.value = result.savedText;
+		}
 	});
 }
 
@@ -121,11 +150,20 @@ document.addEventListener("DOMContentLoaded", function () {
 	// Query form
 	const form = document.getElementById("queryForm");
 
+	// Textarea for query input
+	const textarea = document.getElementById("query");
+
+	// Load the saved query from the local storage
+	loadSavedQuery(textarea);
+
 	// Update the checkbox states when the popup is opened
 	applySavedCheckboxStates(checkboxes);
 
 	// Add an event listener to each checkbox
 	listenForCheckboxChange(checkboxes);
+
+	// Add an event listener to the textarea
+	listenForTextareaChange(textarea);
 
 	// Listen for keyboard shortcuts
 	listenForKeyboardShortcuts(checkboxes, form);
