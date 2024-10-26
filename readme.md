@@ -10,8 +10,3 @@ This Chrome extension allows you to input your question once and have an answer 
 
 ![Demo](img/demo.gif)
 
-## ToDo
-
-- [ ] Verify that user is logged into the services
-- [ ] Auto expanding text input
-- [ ] Voice input
