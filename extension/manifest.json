@@ -18,13 +18,17 @@
 	"background": {
 		"service_worker": "background.js"
 	},
-	"permissions": ["storage", "scripting"],
+	"permissions": [
+		"storage",
+		"scripting"
+	],
 	"host_permissions": [
 		"https://gemini.google.com/*",
 		"https://claude.ai/*",
 		"https://www.bing.com/*",
-		"https://www.perplexity.ai/",
-		"https://chatgpt.com/"
+		"https://www.perplexity.ai/*",
+		"https://chatgpt.com/*",
+		"https://www.meta.ai/*"
 	],
 	"icons": {
 		"16": "img/icon16.png",
