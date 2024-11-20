@@ -1,133 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<style src=""></style>
-		<link rel="stylesheet" href="pico.classless.min.css" />
-		<link rel="stylesheet" href="popUp.css" />
-		<script defer src="popUp.js"></script>
-		<title>AI Roundtable</title>
-	</head>
-	<body>
-		<main class="container">
-			<h6>💬 Ask the AIs:</h6>
-			<form role="group" id="queryForm">
-				<textarea
-					autofocus
-					required
-					autocomplete="off"
-					type="text"
-					id="query"
-					placeholder="What are we asking?"></textarea>
-				<input type="submit" id="askButton" value="Ask" />
-			</form>
-            <i id="submitHint">Use Ctrl + Enter to submit</i>
-			<hr />
-			<div id="options">
-				<fieldset>
-					<h6>Who are we asking:</h6>
-					<label>
-						<input
-							type="checkbox"
-							name="gemini"
-							id="gemini"
-							role="switch"
-							checked
-						/>
-						Gemini <i>(Google)</i>
-					</label>
-					<label>
-						<input
-							type="checkbox"
-							name="claude"
-							id="claude"
-							role="switch"
-							checked
-						/>
-						Claude <i>(Anthropic)</i>
-					</label>
-					<label>
-						<input
-							type="checkbox"
-							name="bingai"
-							id="bingai"
-							role="switch"
-							checked
-						/>
-						Copilot <i>(Microsoft)</i>
-					</label>
-					<label>
-						<input
-							type="checkbox"
-							name="perplexity"
-							id="perplexity"
-							role="switch"
-							checked
-						/>
-						Perplexity AI
-					</label>
-					</label>
-					<label>
-						<input
-							type="checkbox"
-							name="chatgpt"
-							id="chatgpt"
-							role="switch"
-							checked
-						/>
-						ChatGPT <i>(OpenAI)</i>
-					</label>
-				</fieldset>
-			</div>
-            <i>You must be logged in to the services you wish to use.</i>
-			<hr />
-			<details>
-				<summary>Keyboard shortcuts</summary>
-				<table class="striped">
-					<thead>
-						<tr>
-							<th scope="col">Action</th>
-							<th scope="col">Shortcut</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>
-								Open the pop up to begin typing a new
-								<b>Q</b>uery
-							</td>
-							<td>Ctrl/Cmd + Shift + Q</td>
-						</tr>
-						<tr>
-							<td>Toggle Gemini</td>
-							<td>Alt + 1</td>
-						</tr>
-						<tr>
-							<td>Toggle Claude</td>
-							<td>Alt + 2</td>
-						</tr>
-						<tr>
-							<td>Toggle Copilot</td>
-							<td>Alt + 3</td>
-						</tr>
-						</tr>
-						<tr>
-							<td>Toggle Perplexity</td>
-							<td>Alt + 4</td>
-						</tr>
-						<tr>
-							<td>Toggle ChatGPT</td>
-							<td>Alt + 5</td>
-						</tr>
-						<tr>
-							<td>Submit Query</td>
-							<td>Ctrl/Cmd Enter</td>
-						</tr>
-					</tbody>
-				</table>
-			</details>
-			<hr />
-		</main>
-	</body>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style src=""></style>
+	<link rel="stylesheet" href="pico.classless.min.css" />
+	<link rel="stylesheet" href="popUp.css" />
+	<script defer src="popUp.js"></script>
+	<title>AI Roundtable</title>
+</head>
+
+<body>
+	<main class="container">
+		<h6>💬 Ask the AIs:</h6>
+		<form role="group" id="queryForm">
+			<textarea autofocus required autocomplete="off" id="query" placeholder="What are we asking?"></textarea>
+			<input type="submit" id="askButton" value="Ask" />
+		</form>
+		<i id="submitHint">Use Ctrl + Enter to submit</i>
+		<hr />
+		<div id="options">
+			<fieldset>
+				<h6>Who are we asking:</h6>
+				<label>
+					<input type="checkbox" name="gemini" id="gemini" role="switch" checked />
+					Gemini <i>(Google)</i>
+				</label>
+				<label>
+					<input type="checkbox" name="claude" id="claude" role="switch" checked />
+					Claude <i>(Anthropic)</i>
+				</label>
+				<label>
+					<input type="checkbox" name="bingai" id="bingai" role="switch" checked />
+					Copilot <i>(Microsoft)</i>
+				</label>
+				<label>
+					<input type="checkbox" name="perplexity" id="perplexity" role="switch" checked />
+					Perplexity AI
+				</label>
+				<label>
+					<input type="checkbox" name="chatgpt" id="chatgpt" role="switch" checked />
+					ChatGPT <i>(OpenAI)</i>
+				</label>
+				<label>
+					<input type="checkbox" name="metaai" id="metaai" role="switch" checked />
+					Meta AI <i>(Meta)</i>
+				</label>
+			</fieldset>
+		</div>
+		<i>You must be logged in to the services you wish to use.</i>
+		<hr />
+		<details>
+			<summary>Keyboard shortcuts</summary>
+			<table class="striped">
+				<thead>
+					<tr>
+						<th scope="col">Action</th>
+						<th scope="col">Shortcut</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							Open the pop up to begin typing a new
+							<b>Q</b>uery
+						</td>
+						<td>Ctrl/Cmd + Shift + Q</td>
+					</tr>
+					<tr>
+						<td>Toggle Gemini</td>
+						<td>Alt + 1</td>
+					</tr>
+					<tr>
+						<td>Toggle Claude</td>
+						<td>Alt + 2</td>
+					</tr>
+					<tr>
+						<td>Toggle Copilot</td>
+						<td>Alt + 3</td>
+					</tr>
+					<tr>
+						<td>Toggle Perplexity</td>
+						<td>Alt + 4</td>
+					</tr>
+					<tr>
+						<td>Toggle ChatGPT</td>
+						<td>Alt + 5</td>
+					</tr>
+					<!-- New Keyboard Shortcut for Meta AI -->
+					<tr>
+						<td>Toggle Meta AI</td>
+						<td>Alt + 6</td>
+					</tr>
+					<tr>
+						<td>Submit Query</td>
+						<td>Ctrl/Cmd Enter</td>
+					</tr>
+				</tbody>
+			</table>
+		</details>
+		<hr />
+	</main>
+</body>
+
 </html>
