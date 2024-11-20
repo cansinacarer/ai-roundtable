@@ -181,3 +181,47 @@ document.addEventListener("DOMContentLoaded", function () {
 	// Listen for form submit
 	listenForFormSubmit(form);
 });
+document.addEventListener('DOMContentLoaded', () => {
+	const textarea = document.getElementById('query');
+
+	const autoResize = () => {
+		// Store the current scroll position
+		const scrollPos = window.scrollY;
+
+		// Reset the height to calculate the scrollHeight correctly
+		textarea.style.height = 'auto';
+
+		// Set the height to match the scrollHeight
+		textarea.style.height = `${textarea.scrollHeight}px`;
+
+		// Restore the scroll position
+		window.scrollTo(0, scrollPos);
+
+		// If using a browser extension and want to resize the popup window
+		if (chrome && chrome.runtime && chrome.runtime.sendMessage) {
+			// Estimate the new height based on textarea content
+			const newHeight = Math.min(
+				Math.max(textarea.scrollHeight + 150, 300), // minimum 300px
+				800 // maximum 800px for the entire popup
+			);
+			chrome.runtime.sendMessage({ type: 'resize', height: newHeight });
+		}
+	};
+
+	// Initialize the height on page load
+	autoResize();
+
+	// Add event listener for input events
+	textarea.addEventListener('input', () => {
+		requestAnimationFrame(autoResize);
+	});
+
+	// Handle form submission with Ctrl + Enter
+	const form = document.getElementById('queryForm');
+	form.addEventListener('keydown', (e) => {
+		if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+			e.preventDefault();
+			form.submit();
+		}
+	});
+});
