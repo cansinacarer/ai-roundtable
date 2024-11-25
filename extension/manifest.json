@@ -24,7 +24,8 @@
 		"https://claude.ai/*",
 		"https://www.bing.com/*",
 		"https://www.perplexity.ai/",
-		"https://chatgpt.com/"
+		"https://chatgpt.com/",
+		"https://www.meta.ai/*"
 	],
 	"icons": {
 		"16": "img/icon16.png",
