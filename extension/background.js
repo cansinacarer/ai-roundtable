@@ -70,7 +70,6 @@ function askChatGPT(query) {
 	});
 }
 
-// **New Function: Handle Meta AI**
 function askMetaAI(query) {
 	chrome.tabs.create({ url: "https://www.meta.ai/" }, (newTab) => {
 		const onUpdated = (tabId, changeInfo) => {
