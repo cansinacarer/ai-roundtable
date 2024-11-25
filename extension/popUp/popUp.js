@@ -44,7 +44,7 @@ function getCheckedCheckboxNames() {
 function listenForFormSubmit(form) {
 	form.addEventListener("submit", (event) => {
 		event.preventDefault();
-		processForm(form);
+		processForm();
 	});
 }
 
@@ -112,25 +112,27 @@ function listenForKeyboardShortcuts(checkboxes, form) {
 	document.addEventListener("keydown", (event) => {
 		// If the alt key is pressed, this is a checkbox state change shortcut
 		if (event.altKey) {
-			if (event.key === "1") {
-				const checkbox = document.getElementById("gemini");
-				checkbox.checked = !checkbox.checked;
-			}
-			if (event.key === "2") {
-				const checkbox = document.getElementById("claude");
-				checkbox.checked = !checkbox.checked;
-			}
-			if (event.key === "3") {
-				const checkbox = document.getElementById("bingai");
-				checkbox.checked = !checkbox.checked;
-			}
-			if (event.key === "4") {
-				const checkbox = document.getElementById("perplexity");
-				checkbox.checked = !checkbox.checked;
-			}
-			if (event.key === "5") {
-				const checkbox = document.getElementById("chatgpt");
-				checkbox.checked = !checkbox.checked;
+			switch (event.key) {
+				case "1":
+					toggleCheckbox("gemini");
+					break;
+				case "2":
+					toggleCheckbox("claude");
+					break;
+				case "3":
+					toggleCheckbox("bingai");
+					break;
+				case "4":
+					toggleCheckbox("perplexity");
+					break;
+				case "5":
+					toggleCheckbox("chatgpt");
+					break;
+				case "6":
+					toggleCheckbox("metaai");
+					break;
+				default:
+					break;
 			}
 			saveCheckboxStates(checkboxes);
 		}
@@ -140,6 +142,14 @@ function listenForKeyboardShortcuts(checkboxes, form) {
 			processForm();
 		}
 	});
+}
+
+// Helper function to toggle checkbox by ID
+function toggleCheckbox(id) {
+	const checkbox = document.getElementById(id);
+	if (checkbox) {
+		checkbox.checked = !checkbox.checked;
+	}
 }
 
 // When the popup is opened, locate the checkboxes and add event listeners
