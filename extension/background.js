@@ -77,40 +77,53 @@ function askMetaAI(query) {
 			if (tabId === newTab.id && changeInfo.status === "complete") {
 				chrome.tabs.onUpdated.removeListener(onUpdated);
 				const submitMetaAI = async (q) => {
-					const waitFor = (sel, to = 5000) => new Promise((res, rej) => {
-						const interval = setInterval(() => {
-							const el = document.querySelector(sel);
-							if (el) { clearInterval(interval); res(el); }
-						}, 100);
-						setTimeout(() => { clearInterval(interval); rej(`Missing: ${sel}`); }, to);
-					});
+					const waitFor = (sel, to = 5000) =>
+						new Promise((res, rej) => {
+							const interval = setInterval(() => {
+								const el = document.querySelector(sel);
+								if (el) {
+									clearInterval(interval);
+									res(el);
+								}
+							}, 100);
+							setTimeout(() => {
+								clearInterval(interval);
+								rej(`Missing: ${sel}`);
+							}, to);
+						});
 					try {
 						const [input, button] = await Promise.all([
-							waitFor('textarea[placeholder="Ask Meta AI anything..."]'),
-							waitFor('div[aria-label="Send Message"][role="button"]')
+							waitFor(
+								'textarea[placeholder="Ask Meta AI anything..."]'
+							),
+							waitFor(
+								'div[aria-label="Send Message"][role="button"]'
+							),
 						]);
 						input.focus();
 						input.value = q;
-						input.dispatchEvent(new Event('input', { bubbles: true }));
+						input.dispatchEvent(
+							new Event("input", { bubbles: true })
+						);
 						button.click();
 						console.log("Meta AI: Query submitted.");
 					} catch (err) {
 						console.error(`Meta AI Error: ${err}`);
 					}
 				};
-				chrome.scripting.executeScript({
-					target: { tabId: newTab.id },
-					func: submitMetaAI,
-					args: [query],
-				}).then(() => console.log("Meta AI: Script injected."))
-					.catch(err => console.error(`Injection Failed: ${err}`));
+				chrome.scripting
+					.executeScript({
+						target: { tabId: newTab.id },
+						func: submitMetaAI,
+						args: [query],
+					})
+					.then(() => console.log("Meta AI: Script injected."))
+					.catch((err) => console.error(`Injection Failed: ${err}`));
 			}
 		};
 		chrome.tabs.onUpdated.addListener(onUpdated);
 	});
 }
-
-
 
 // Listen for the submit message from the popup
 
