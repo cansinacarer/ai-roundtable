@@ -17,12 +17,12 @@
 					autofocus
 					required
 					autocomplete="off"
-					type="text"
 					id="query"
-					placeholder="What are we asking?"></textarea>
+					placeholder="What are we asking?"
+				></textarea>
 				<input type="submit" id="askButton" value="Ask" />
 			</form>
-            <i id="submitHint">Use Ctrl + Enter to submit</i>
+			<i id="submitHint">Use Ctrl + Enter to submit</i>
 			<hr />
 			<div id="options">
 				<fieldset>
@@ -35,7 +35,8 @@
 							role="switch"
 							checked
 						/>
-						Gemini <i>(Google)</i>
+						Gemini
+						<i>(Google)</i>
 					</label>
 					<label>
 						<input
@@ -45,7 +46,8 @@
 							role="switch"
 							checked
 						/>
-						Claude <i>(Anthropic)</i>
+						Claude
+						<i>(Anthropic)</i>
 					</label>
 					<label>
 						<input
@@ -55,7 +57,8 @@
 							role="switch"
 							checked
 						/>
-						Copilot <i>(Microsoft)</i>
+						Copilot
+						<i>(Microsoft)</i>
 					</label>
 					<label>
 						<input
@@ -67,7 +70,6 @@
 						/>
 						Perplexity AI
 					</label>
-					</label>
 					<label>
 						<input
 							type="checkbox"
@@ -76,11 +78,23 @@
 							role="switch"
 							checked
 						/>
-						ChatGPT <i>(OpenAI)</i>
+						ChatGPT
+						<i>(OpenAI)</i>
+					</label>
+					<label>
+						<input
+							type="checkbox"
+							name="metaai"
+							id="metaai"
+							role="switch"
+							checked
+						/>
+						Meta AI
+						<i>(Meta)</i>
 					</label>
 				</fieldset>
 			</div>
-            <i>You must be logged in to the services you wish to use.</i>
+			<i>You must be logged in to the services you wish to use.</i>
 			<hr />
 			<details>
 				<summary>Keyboard shortcuts</summary>
@@ -95,7 +109,8 @@
 						<tr>
 							<td>
 								Open the pop up to begin typing a new
-								<b>Q</b>uery
+								<b>Q</b>
+								uery
 							</td>
 							<td>Ctrl/Cmd + Shift + Q</td>
 						</tr>
@@ -111,7 +126,6 @@
 							<td>Toggle Copilot</td>
 							<td>Alt + 3</td>
 						</tr>
-						</tr>
 						<tr>
 							<td>Toggle Perplexity</td>
 							<td>Alt + 4</td>
@@ -119,6 +133,10 @@
 						<tr>
 							<td>Toggle ChatGPT</td>
 							<td>Alt + 5</td>
+						</tr>
+						<tr>
+							<td>Toggle Meta AI</td>
+							<td>Alt + 6</td>
 						</tr>
 						<tr>
 							<td>Submit Query</td>
