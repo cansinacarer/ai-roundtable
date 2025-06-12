@@ -71,7 +71,10 @@ function askChatGPT(query) {
 }
 
 function askMetaAI(query) {
-	chrome.tabs.create({ url: "https://www.meta.ai/" }, (newTab) => {
+	// URLEncode the query
+	const encodedQuery = encodeURIComponent(query);
+
+	chrome.tabs.create({ url: `https://www.meta.ai/?q=${encodedQuery}` }, (newTab) => {
 		const onUpdated = (tabId, changeInfo) => {
 			if (tabId === newTab.id && changeInfo.status === "complete") {
 				chrome.tabs.onUpdated.removeListener(onUpdated);
@@ -91,19 +94,11 @@ function askMetaAI(query) {
 							}, to);
 						});
 					try {
-						const [input, button] = await Promise.all([
-							waitFor(
-								'textarea[placeholder="Ask Meta AI anything..."]'
-							),
+						const [button] = await Promise.all([
 							waitFor(
 								'div[aria-label="Send Message"][role="button"]'
 							),
 						]);
-						input.focus();
-						input.value = q;
-						input.dispatchEvent(
-							new Event("input", { bubbles: true })
-						);
 						button.click();
 						console.log("Meta AI: Query submitted.");
 					} catch (err) {
