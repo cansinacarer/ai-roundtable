@@ -33,10 +33,36 @@ function askGemini(query) {
 function askClaude(query) {
 	// URLEncode the query
 	const encodedQuery = encodeURIComponent(query);
+    
+	// Filling out the form and submit action
+	function submitClaude(query) {
+		setTimeout(() => {
+			setTimeout(() => {
+				document.querySelector('button[aria-label="Send message"]').click();
+			}, 212);
+		}, 1032);
+	}
 
 	// Open a new tab with Claude AI
 	chrome.tabs.create({
 		url: `https://claude.ai/new?q=${encodedQuery}`,
+	}, (newTab) => {
+		let executed = false;
+		chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+			if (
+				tabId === newTab.id &&
+				changeInfo.status === "complete" &&
+				!executed
+			) {
+				executed = true;
+
+				chrome.scripting.executeScript({
+					target: { tabId: tabId },
+					func: submitClaude,
+					args: [query],
+				});
+			}
+		});
 	});
 }
 
