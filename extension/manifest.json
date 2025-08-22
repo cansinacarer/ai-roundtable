@@ -1,37 +1,40 @@
 {
-	"manifest_version": 3,
-	"name": "AI Roundtable",
-	"version": "0.1.8",
-	"description": "Ask multiple AI assistants simultaneously!",
-	"commands": {
-		"_execute_action": {
-			"suggested_key": {
-				"default": "Ctrl+Shift+Q",
-				"mac": "Ctrl+Shift+Q"
-			},
-			"description": "Open the extension popup"
-		}
-	},
-	"action": {
-		"default_popup": "popUp/popUp.html"
-	},
-	"background": {
-		"service_worker": "background.js"
-	},
-	"permissions": ["storage", "scripting"],
-	"host_permissions": [
-		"https://gemini.google.com/*",
-		"https://claude.ai/*",
-		"https://www.bing.com/*",
-		"https://www.perplexity.ai/",
-		"https://chatgpt.com/",
-		"https://www.meta.ai/*"
-	],
-	"icons": {
-		"16": "img/icon16.png",
-		"32": "img/icon32.png",
-		"48": "img/icon48.png",
-		"128": "img/icon128.png",
-		"1024": "img/icon1024.png"
-	}
+    "manifest_version": 3,
+    "name": "AI Roundtable",
+    "version": "0.1.9",
+    "description": "Ask multiple AI assistants simultaneously!",
+    "commands": {
+        "_execute_action": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+Q",
+                "mac": "Ctrl+Shift+Q"
+            },
+            "description": "Open the extension popup"
+        }
+    },
+    "action": {
+        "default_popup": "popUp/popUp.html"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": [
+        "storage",
+        "scripting"
+    ],
+    "host_permissions": [
+        "https://gemini.google.com/*",
+        "https://claude.ai/*",
+        "https://www.bing.com/*",
+        "https://www.perplexity.ai/",
+        "https://chatgpt.com/",
+        "https://www.meta.ai/*"
+    ],
+    "icons": {
+        "16": "img/icon16.png",
+        "32": "img/icon32.png",
+        "48": "img/icon48.png",
+        "128": "img/icon128.png",
+        "1024": "img/icon1024.png"
+    }
 }
