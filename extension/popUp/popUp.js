@@ -114,22 +114,34 @@ function listenForKeyboardShortcuts(checkboxes, form) {
 		if (event.altKey) {
 			switch (event.key) {
 				case "1":
+				case "¡":
 					toggleCheckbox("gemini");
+					event.preventDefault();
 					break;
 				case "2":
+				case "™":
 					toggleCheckbox("claude");
+					event.preventDefault();
 					break;
 				case "3":
+				case "£":
 					toggleCheckbox("bingai");
+					event.preventDefault();
 					break;
 				case "4":
+				case "¢":
 					toggleCheckbox("perplexity");
+					event.preventDefault();
 					break;
 				case "5":
+				case "∞":
 					toggleCheckbox("chatgpt");
+					event.preventDefault();
 					break;
 				case "6":
+				case "§":
 					toggleCheckbox("metaai");
+					event.preventDefault();
 					break;
 				default:
 					break;
